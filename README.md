@@ -4,7 +4,7 @@
 
 
 
-Phases Divided into 4 main steps.
+#       Phases Divided into 4 main phase
 
 
 
@@ -33,7 +33,7 @@ https://www.figma.com/proto/AgpAHnoTLcglbMVaXYMsnC/KRow?node-id=126-160&starting
 
 
                                        
-                                Phase 1 includes:
+#                   Phase 1 includes:
                               Building Fundamentals
 
 
@@ -41,7 +41,7 @@ https://www.figma.com/proto/AgpAHnoTLcglbMVaXYMsnC/KRow?node-id=126-160&starting
 
 
 
-#    - Building fundamental panes(background and all)
+- Building fundamental panes(background and all)
 
                         
         - Crews
@@ -55,7 +55,7 @@ https://www.figma.com/proto/AgpAHnoTLcglbMVaXYMsnC/KRow?node-id=126-160&starting
 
     
     
-#   - Permission system (Who can edit and who can see)
+- Permission system (Who can edit and who can see)
         - Captains can:
             - Edit their crews
             - Edit their outings
@@ -67,13 +67,15 @@ https://www.figma.com/proto/AgpAHnoTLcglbMVaXYMsnC/KRow?node-id=126-160&starting
 
 
         
-#    - Authentication System
+- Authentication System
+
             - It will either:
+            
                 - Access token based authentication assigned by captains
                 
                 OR
-                - Simple password-username account. 
-       
+                
+                - Simple password-username account.
                 
                 
 // After user created their account, they will need to ask permission to join a squad (EG fresher men) and captain (fresher mens captain in this case) needs to make sure that person is one of his rower. 
@@ -90,7 +92,7 @@ https://www.figma.com/proto/AgpAHnoTLcglbMVaXYMsnC/KRow?node-id=126-160&starting
                                   
                                     
                                     
-                                    Phase 2 includes:
+#                        Phase 2 includes:
                                 Implementing Priotitised Additions
 
 
@@ -98,8 +100,9 @@ https://www.figma.com/proto/AgpAHnoTLcglbMVaXYMsnC/KRow?node-id=126-160&starting
 
 
 
-#    - Erg history(WAM DOES NOT WANT OTHER ROWERS TO SEE EACH OTHERS ERG HISTORY)
+- Erg history(WAM DOES NOT WANT OTHER ROWERS TO SEE EACH OTHERS ERG HISTORY)
             - Training will be shared by captains weekly (submitted into the system as input and it will be staying on the PLAN section). Picture can be found on the link. 
+            
                             /var/folders/b9/r_l7hkwx2d796dhjky1wb7cc0000gn/T/TemporaryItems/NSIRD_screencaptureui_Z7AgdB/Screenshot 2023-05-30 at 21.29.52.png
                             
             - They may put a picture of their memory screen or we can connect a picture convertor as phase 4 project.
@@ -108,7 +111,7 @@ https://www.figma.com/proto/AgpAHnoTLcglbMVaXYMsnC/KRow?node-id=126-160&starting
             
             
             
-#   - Checking history of that rower stored in Profile History
+- Checking history of that rower stored in Profile History
             - This includes:
                 - Past seats occupied on previous outings
                 - Percentage of which side they occupied since the beginning of the year
@@ -117,7 +120,7 @@ https://www.figma.com/proto/AgpAHnoTLcglbMVaXYMsnC/KRow?node-id=126-160&starting
             
             
 
-#   - Notify user if:
+- Notify user if:
         - Outing cancelled or postponed. 
         
         - Captains can send message to their crew (Ask to fill availability or updates)
@@ -129,7 +132,7 @@ https://www.figma.com/proto/AgpAHnoTLcglbMVaXYMsnC/KRow?node-id=126-160&starting
 
 
 
-#   - Captains can save crews for future outings
+- Captains can save crews for future outings
 
 
 
@@ -142,7 +145,7 @@ https://www.figma.com/proto/AgpAHnoTLcglbMVaXYMsnC/KRow?node-id=126-160&starting
 
 
 
-                                PHASE 3 includes:
+#                  PHASE 3 includes:
                                 Extra Improvements
                                 
                                 
@@ -150,7 +153,7 @@ https://www.figma.com/proto/AgpAHnoTLcglbMVaXYMsnC/KRow?node-id=126-160&starting
 
 
 
-#   - Rating System
+- Rating System
             - Rowers and coxes rated by the coach and the captain after every outing
             
             - Can be seen by coach and related captains.
@@ -159,14 +162,14 @@ https://www.figma.com/proto/AgpAHnoTLcglbMVaXYMsnC/KRow?node-id=126-160&starting
 
 
 
-#   - Videos and pictures can be saved
+- Videos and pictures can be saved
             - Maybe we can use google drive for this so it wont cover any storage on our app.
             
             
 
 
 
-#   - User Profile Picture
+- User Profile Picture
             - User should be able to select a picture from their gallery to set as their profile picture.
             
             - This can be seen on profile when profile clicked.
@@ -175,7 +178,7 @@ https://www.figma.com/proto/AgpAHnoTLcglbMVaXYMsnC/KRow?node-id=126-160&starting
 
 
 
-#   - Status of SUBS Screen
+- Status of SUBS Screen
             - This can be editted by treasurer only and seen by everyone.
             - We can use google sheets for this as well, we can discuss this later.
            
@@ -190,7 +193,7 @@ https://www.figma.com/proto/AgpAHnoTLcglbMVaXYMsnC/KRow?node-id=126-160&starting
 
 
 
-                                        PHASE 4 includes:
+#                       PHASE 4 includes:
                                         Maintaining System
 
 
@@ -198,12 +201,11 @@ https://www.figma.com/proto/AgpAHnoTLcglbMVaXYMsnC/KRow?node-id=126-160&starting
 
 
 
-#   - Test System with the Boat Club
+- Test System with the Boat Club
 
 
 
 
-
-#   - Try to connect items which can save outing performance
+- Try to connect items which can save outing performance
             - Hearth Rate monitors 
             - Smart watches
