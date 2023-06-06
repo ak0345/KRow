@@ -1,9 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, Image, Button, Pressable } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import LoginScreen from './LoginScreen';
-import HomeScreen from './HomeScreen';
+import LoginScreen from './app_screens/LoginScreen';
+import HomeScreen from './app_screens/HomeScreen';
+import SignUpScreen from './app_screens/SignUpScreen';
 
 const Stack = createStackNavigator();
 
@@ -17,6 +18,13 @@ export default function App() {
         name="Login"
         component={LoginScreen}
         options = {{headerShown: false}}
+        initialParams={{
+          styleSizing: sizing, // Pass sizing styles as an option
+          styleTheme: theme, // Pass theme styles as an option
+        }}/>
+        <Stack.Screen
+        name="Signup"
+        component={SignUpScreen}
         initialParams={{
           styleSizing: sizing, // Pass sizing styles as an option
           styleTheme: theme, // Pass theme styles as an option
@@ -42,8 +50,9 @@ const sizing = StyleSheet.create({
     justifyContent: 'center',
   },
 
-  titles: {
-    justifyContent: 'flex-start',
+  btntext: {
+    padding: 10,
+    textAlign: 'center',
   },
 
   input: {
@@ -68,7 +77,7 @@ const theme = StyleSheet.create({
   },
 
   titles: {
-    color: 'white'
+    color: 'white',
   },
 
   username: {
@@ -80,4 +89,10 @@ const theme = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     color: 'black',
   },
+
+  signinbtn: {
+    backgroundColor: '#D9EE01',
+  },
+
+
 });
