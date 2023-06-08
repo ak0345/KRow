@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, KeyboardAvoidingView } from 'react-native';
-import { auth } from '../firebase';
+import { auth, db } from '../firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 const onSignUp = async () => {

@@ -1,9 +1,9 @@
 import {useEffect, useState} from 'react';
-import { Text, View} from 'react-native';
+import { Text, View, TouchableOpacity, Image} from 'react-native';
 import {db, auth} from '../firebase';
 import {getDocs, collection} from 'firebase/firestore';
 
-function HomeScreen({route}) {
+function HomeScreen({route, navigation}) {
 
     const { styleSizing, styleTheme } = route.params;
 
@@ -30,9 +30,25 @@ function HomeScreen({route}) {
 
   return (
     <View style={[styleSizing.container, styleTheme.container]}>
-      <Text style={[styleSizing.title, styleTheme.title]}>
-        qwer
-      </Text>
+
+      <Image style={styleSizing.logo} source={require('../assets/KRowLogo.png')} />
+      
+      <TouchableOpacity style={[styleSizing.input, styleTheme.signinbtn, {backgroundColor: '#CE2449'}]}
+        onPress = {()=>{}}>
+          <Text style = {[styleSizing.btntext, styleTheme.titles]}>
+            Crews Document
+      </Text></TouchableOpacity>
+      <TouchableOpacity style={[styleSizing.input, styleTheme.signinbtn,
+      {backgroundColor: '#ffffff'}]}
+        onPress = {()=>{}}>
+          <Text style = {[styleSizing.btntext, styleTheme.titles, {color: 'black'}]}>
+            Indoor Training
+      </Text></TouchableOpacity>
+      <TouchableOpacity style={[styleSizing.input, styleTheme.signinbtn]}
+        onPress = {()=>{navigation.navigate('ProfilePage')}}>
+          <Text style = {[styleSizing.btntext, styleTheme.titles]}>
+            Availibility (Profile for now)
+      </Text></TouchableOpacity>
     </View>
   );
 }
