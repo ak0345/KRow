@@ -1,14 +1,14 @@
 import React from 'react';
-import { StyleSheet, Image, TouchableOpacity, } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import LoginScreen from './app_screens/LoginScreen';
-import HomeScreen from './app_screens/HomeScreen';
-import SignUpScreen from './app_screens/SignUpScreen';
-import MenuDropDown from './app_screens/MenuDropDown';
-import ProfileScreen from './app_screens/ProfileScreen';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import LoginScreen from '@appscreens/LoginScreen';
+import HomeScreen from '@appscreens/HomeScreen';
+import SignUpScreen from '@appscreens/SignUpScreen';
+import MenuDropDown from '@appscreens/MenuDropDown';
+import ProfileScreen from '@appscreens/ProfileScreen';
 
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
 export default function App() {
 
@@ -44,12 +44,6 @@ export default function App() {
           headerLeft:() => (
             <MenuDropDown styleSizing={sizing} styleTheme={theme} />
           ),
-          headerRight:() => (
-            <TouchableOpacity onPress={() => {}}>
-              <Image style={[sizing.menubtn, {width: 30, height: 30,}]}
-                  source={require('./assets/profile.png')}/>
-            </TouchableOpacity>
-            ),
         }}
         initialParams={{
           styleSizing: sizing, // Pass sizing styles as an option
@@ -59,7 +53,7 @@ export default function App() {
         <Stack.Screen
         name="ProfilePage"
         component={ProfileScreen}
-        options = {{headerShown: false}}
+        options = {{headerShown: true}}
         initialParams={{
           styleSizing: sizing, // Pass sizing styles as an option
           styleTheme: theme, // Pass theme styles as an option
@@ -91,6 +85,16 @@ const sizing = StyleSheet.create({
       width:250,
       alignItems: 'center',
     },
+
+    forgotpass: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+      marginTop: 22,
+      borderRadius: 10,
+      margin: 10,
+      padding: 10,
+    },
   
   btntext: {
     padding: 10,
@@ -103,6 +107,7 @@ const sizing = StyleSheet.create({
     borderRadius: 10,
     margin: 10,
     padding: 10,
+    textAlign: 'center',
   },
 
   btns: {
@@ -110,13 +115,17 @@ const sizing = StyleSheet.create({
     width: 200,
     borderRadius: 10,
     margin: 5,
-    //marginLeft: 20,
-    //padding: 5,
   },
 
   logo: {
     width: 300,
     height: 300,
+    resizeMode: 'contain'
+  },
+
+  profilepic: {
+    width: 200,
+    height: 200,
     resizeMode: 'contain'
   },
 });
@@ -146,9 +155,12 @@ const theme = StyleSheet.create({
   },
 
   menu: {
-    //backgroundColor: '#153170',
     backgroundColor: '#0c1c40',
     
+  },
+
+  forgotpass: {
+    backgroundColor: '#153170',
   },
 
 });
