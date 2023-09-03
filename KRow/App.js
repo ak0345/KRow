@@ -7,6 +7,12 @@ import HomeScreen from '@appscreens/HomeScreen';
 import SignUpScreen from '@appscreens/SignUpScreen';
 import MenuDropDown from '@appscreens/MenuDropDown';
 import ProfileScreen from '@appscreens/ProfileScreen';
+import OutingsScreen from '@appscreens/OutingsScreen';
+import IndoorTrainingsScreen from '@appscreens/IndoorTrainingsScreen';
+import AdminScreen from '@appscreens/AdminScreen';
+import EditProfileScreen from '@appscreens/adminscreens/EditProfileScreen';
+import ModifyTrainingScreen from './appscreens/adminscreens/ModifyTrainingScreen';
+import NewTrainingScreen from './appscreens/adminscreens/NewTrainingScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -16,7 +22,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
 
-        <Stack.Screen
+      <Stack.Screen
         name="Login"
         component={LoginScreen}
         options = {{headerShown: false}}
@@ -37,6 +43,7 @@ export default function App() {
         name="Home"
         component={HomeScreen}
         options = {{
+          gestureEnabled: false,
           headerTintColor: '#ffffff',
           headerStyle: {backgroundColor: '#153170'},
           headerShadowVisible: false,
@@ -53,6 +60,60 @@ export default function App() {
         <Stack.Screen
         name="ProfilePage"
         component={ProfileScreen}
+        options = {{headerShown: true}}
+        initialParams={{
+          styleSizing: sizing, // Pass sizing styles as an option
+          styleTheme: theme, // Pass theme styles as an option
+        }}/>
+
+        <Stack.Screen
+        name="Outings"
+        component={OutingsScreen}
+        options = {{headerShown: true}}
+        initialParams={{
+          styleSizing: sizing, // Pass sizing styles as an option
+          styleTheme: theme, // Pass theme styles as an option
+        }}/>
+
+        <Stack.Screen
+        name="Indoor"
+        component={IndoorTrainingsScreen}
+        options = {{headerShown: true}}
+        initialParams={{
+          styleSizing: sizing, // Pass sizing styles as an option
+          styleTheme: theme, // Pass theme styles as an option
+        }}/>
+
+        <Stack.Screen
+        name="Admin"
+        component={AdminScreen}
+        options = {{headerShown: true}}
+        initialParams={{
+          styleSizing: sizing, // Pass sizing styles as an option
+          styleTheme: theme, // Pass theme styles as an option
+        }}/>
+
+        <Stack.Screen
+        name="EditProfile"
+        component={EditProfileScreen}
+        options = {{headerShown: true}}
+        initialParams={{
+          styleSizing: sizing, // Pass sizing styles as an option
+          styleTheme: theme, // Pass theme styles as an option
+        }}/>
+
+        <Stack.Screen
+        name="ModifyTraining"
+        component={ModifyTrainingScreen}
+        options = {{headerShown: true}}
+        initialParams={{
+          styleSizing: sizing, // Pass sizing styles as an option
+          styleTheme: theme, // Pass theme styles as an option
+        }}/>
+
+        <Stack.Screen
+        name="AddNewTraining"
+        component={NewTrainingScreen}
         options = {{headerShown: true}}
         initialParams={{
           styleSizing: sizing, // Pass sizing styles as an option
@@ -80,7 +141,6 @@ const sizing = StyleSheet.create({
     },
 
     menu: {
-      backgroundColor: '#0c1c40',
       minHeight:1000,
       width:250,
       alignItems: 'center',
@@ -128,13 +188,24 @@ const sizing = StyleSheet.create({
     height: 200,
     resizeMode: 'contain'
   },
+
+  calender: {
+    textAlign: 'center',
+    padding: 5,
+    width: 50,
+    fontSize: 14,
+  },
+
+  calenderbtn: {
+    borderRadius: 30,
+    width: 50,
+  },
 });
 
 const theme = StyleSheet.create({
   container: {
     backgroundColor: '#153170',
-    //someone pls try adding one of the custom fonts here i cant make it work (custom fonts are saved in assets folder)
-  },
+    },
 
   titles: {
     color: 'white',
@@ -156,11 +227,14 @@ const theme = StyleSheet.create({
 
   menu: {
     backgroundColor: '#0c1c40',
-    
   },
 
   forgotpass: {
     backgroundColor: '#153170',
+  },
+
+  calender: {
+    color: 'white',
   },
 
 });

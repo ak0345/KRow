@@ -7,6 +7,8 @@ export default function MenuDropDown({styleSizing, styleTheme}) {
 
   const [menuVisibility, setMenuVisibility] = React.useState(false);
 
+  const logOut = async () => {await auth.signOut();};
+
   const navigation = useNavigation();
 
         return (
@@ -30,6 +32,12 @@ export default function MenuDropDown({styleSizing, styleTheme}) {
                 onPress = {() => {setMenuVisibility(false); navigation.navigate('ProfilePage')}}>
                   <Text style = {[styleSizing.btntext, styleTheme.titles, {fontSize: 20}]}>
                     Profile
+              </Text></TouchableOpacity>
+
+              <TouchableOpacity style={[styleSizing.btns, styleTheme.menu]}
+                onPress = {() => {setMenuVisibility(false); navigation.navigate('ProfilePage')}}>
+                  <Text style = {[styleSizing.btntext, styleTheme.titles, {fontSize: 20}]}>
+                    Current Committee
               </Text></TouchableOpacity>
 
               <TouchableOpacity style={[styleSizing.btns, styleTheme.menu]}
@@ -63,7 +71,7 @@ export default function MenuDropDown({styleSizing, styleTheme}) {
               </Text></TouchableOpacity>
 
               <TouchableOpacity style={[styleSizing.btns, styleTheme.menu]}
-                onPress = {() => {setMenuVisibility(false); auth.signOut(); navigation.navigate('Login');}}>
+                onPress = {() => {setMenuVisibility(false); logOut(); navigation.navigate('Login');}}>
                   <Text style = {[styleSizing.btntext, styleTheme.titles, {fontSize: 20}]}>
                     Log Out
               </Text></TouchableOpacity>
