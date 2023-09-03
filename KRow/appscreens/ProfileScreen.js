@@ -19,12 +19,12 @@ function ProfileScreen({route, navigation}) {
     React.useEffect( () => {
       const getProfileDoc = async () => {
         try {
-        const doc = await getDoc(profileDocRef);
-        setFnameState(doc.get('first-name'));
-        setLnameState(doc.get('last-name'));
-        setKnumberState(doc.get('knumber'));
-        setContactState(doc.get('contact-number'));
-        setCourseState(doc.get('course'));
+        const docSnapShot = await getDoc(profileDocRef);
+        setFnameState(docSnapShot.get('first-name'));
+        setLnameState(docSnapShot.get('last-name'));
+        setKnumberState(docSnapShot.get('knumber'));
+        setContactState(docSnapShot.get('contact-number'));
+        setCourseState(docSnapShot.get('course'));
       }
       catch (error) {console.log(error);}
     }
@@ -104,7 +104,6 @@ function ProfileScreen({route, navigation}) {
           <Text style = {[styleSizing.btntext, styleTheme.titles]}>
             Save
       </Text></TouchableOpacity>
-
 
     </KeyboardAvoidingView>
     );

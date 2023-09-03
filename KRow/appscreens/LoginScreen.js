@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, KeyboardAvoidingView, TextInput, Image, TouchableOpacity, Pressable, Alert, Modal, View } from 'react-native';
+import { ActivityIndicator, Text, KeyboardAvoidingView, TextInput, Image, TouchableOpacity, Pressable, Alert, Modal, View } from 'react-native';
 import {auth} from '../firebase';
 import { signInWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/auth';
 
@@ -10,16 +10,29 @@ function LoginScreen({route, navigation}) {
   const [email, setUsernameState] = React.useState('');
   const [password, setPasswordState] = React.useState('');
   const [forgotEmail, setForgotEmailState] = React.useState('');
+  const [isLoading, setLoadingState] = React.useState(false);
 
   const [modalVisible, setModalVisible] = React.useState(false);
 
   //username and password will be sent to server for login verification
   const onSignIn = async () => {
     try {
+      setLoadingState(true);
       await signInWithEmailAndPassword(auth, email, password)
-      navigation.navigate('Home');
+      if (auth.currentUser.emailVerified) {
+        setLoadingState(false);
+        setUsernameState('');
+        setPasswordState('');
+        navigation.navigate('Home');
+      }
+      else {
+        setLoadingState(false);
+        Alert.alert('Sign in Failed', 'Please verify your email', [
+          {text: 'OK', onPress: () => {setUsernameState(''); setPasswordState('');}}])
+      }
     }
     catch (error) {
+      setLoadingState(false);
       Alert.alert('Warning', 'Email or password incorrect', [
         {text: 'OK', onPress: () => {setUsernameState(''); setPasswordState('');}}
     ])}
@@ -27,11 +40,15 @@ function LoginScreen({route, navigation}) {
 
   const passReset = async () => {
   try {
+      setLoadingState(true);
       await sendPasswordResetEmail(auth, forgotEmail)
+      setLoadingState(false);
       Alert.alert('Success', 'Password reset email has been sent', [
         {text: 'OK', onPress: () => {setUsernameState(''); setPasswordState(''); setForgotEmailState('');}}
     ])}
     catch (error) {
+      setLoadingState(false);
+      console.log(error);
       Alert.alert('Warning', 'Email does not exist', [
         {text: 'OK', onPress: () => {setUsernameState(''); setPasswordState(''); setForgotEmailState('');}}
     ])
@@ -77,10 +94,21 @@ function LoginScreen({route, navigation}) {
           Forgot your Password?
         </Text></Pressable>
          
-      <Pressable onPress = {() => {navigation.navigate('Signup')}}>
+      <Pressable onPress = {() => {navigation.navigate('Signup'); setUsernameState(''); setPasswordState('');}}>
         <Text style = {[styleSizing.btntext, styleTheme.titles, {color: '#D9EE01'}]}>
           Don't have an account? Sign Up
         </Text></Pressable>
+
+        <Modal
+        animationType="fade"
+        transparent={true}
+        visible={isLoading}
+        onRequestClose={() => {}}
+        >
+          <View style={[styleTheme.container, styleSizing.container]}>
+          <ActivityIndicator size="large" animating={isLoading}/>
+          </View>
+        </Modal>
 
         <Modal
         animationType="fade"
@@ -106,7 +134,7 @@ function LoginScreen({route, navigation}) {
       </Text></TouchableOpacity>
 
       <TouchableOpacity style={[styleSizing.input, styleTheme.signinbtn]}
-        onPress = {() => {setModalVisible(false);}}>
+        onPress = {() => {setModalVisible(false); setUsernameState(''); setPasswordState(''); setForgotEmailState('');}}>
           <Text style = {[styleSizing.btntext, styleTheme.titles]}>
             Close
       </Text></TouchableOpacity>
