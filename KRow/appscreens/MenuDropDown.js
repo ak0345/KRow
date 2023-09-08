@@ -41,7 +41,7 @@ export default function MenuDropDown({styleSizing, styleTheme}) {
               </Text></TouchableOpacity>
 
               <TouchableOpacity style={[styleSizing.btns, styleTheme.menu]}
-                onPress = {() => {setMenuVisibility(false); navigation.navigate('ProfilePage')}}>
+                onPress = {() => {setMenuVisibility(false); navigation.navigate('ContactPage')}}>
                   <Text style = {[styleSizing.btntext, styleTheme.titles, {fontSize: 20}]}>
                     Forms
               </Text></TouchableOpacity>
