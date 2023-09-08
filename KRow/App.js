@@ -13,6 +13,7 @@ import AdminScreen from '@appscreens/AdminScreen';
 import EditProfileScreen from '@appscreens/adminscreens/EditProfileScreen';
 import ModifyTrainingScreen from './appscreens/adminscreens/ModifyTrainingScreen';
 import NewTrainingScreen from './appscreens/adminscreens/NewTrainingScreen';
+import ContactScreen from './appscreens/ContactScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -60,6 +61,15 @@ export default function App() {
         <Stack.Screen
         name="ProfilePage"
         component={ProfileScreen}
+        options = {{headerShown: true}}
+        initialParams={{
+          styleSizing: sizing, // Pass sizing styles as an option
+          styleTheme: theme, // Pass theme styles as an option
+        }}/>
+
+          <Stack.Screen
+        name="ContactPage"
+        component={ContactScreen}
         options = {{headerShown: true}}
         initialParams={{
           styleSizing: sizing, // Pass sizing styles as an option
@@ -199,6 +209,24 @@ const sizing = StyleSheet.create({
   calenderbtn: {
     borderRadius: 30,
     width: 50,
+  },
+
+    pickerContainer: {
+    alignItems: 'center',
+    marginTop: 0,
+  },
+  formContainer: {
+    alignItems: 'center',
+    marginTop: 0,
+  },
+
+  messageInput: {
+    height: 150,
+    width: 300,
+    borderRadius: 10,
+    margin: 10,
+    padding: 10,
+    textAlign: 'center',
   },
 });
 
